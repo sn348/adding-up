@@ -43,12 +43,16 @@ rl.on('close', () =>
 		return pair1[1].change - pair2[1].change; //逆順
 	});
 
-	var rankingArrayMap = rankingArray.map(([key, value]) =>
+	var rankingArrayMap = rankingArray.map(([key, value], i) => 
 	{
+		//mapの第一引数はここではリストにして入れている、第二引数を渡すと「要素の添字」
+		//Array の map 関数に渡す無名関数は、第二引数も書くと、各要素の添字も取得できます。
+		console.log(key, value);
 		return (
-			key + ':' + value.popu10 + '=>' + value.popu15 + ' 変化率:' +
+			key + ': Rnak_' + i + ': ' + value.popu10 + '=>' + value.popu15 + ' 変化率:' +
 			value.change
 		);
 	});
 	console.log(rankingArrayMap);
+
 });
